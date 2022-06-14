@@ -1,7 +1,7 @@
 // buttons
 const split = document.getElementById('Split');
-const displayOdd = document.getElementById('Odd');
-const displayEven = document.getElementById('Even');
+const displayOdd = document.getElementById('DisplayOdd');
+const displayEven = document.getElementById('DisplayEven');
 
 // variables
 let Numbers=[1,2,3,4,5,6,7,8,9,10];
@@ -23,6 +23,8 @@ function SplitOddAndEven(Numbers) {
 
 document.querySelector('#Split').onclick = (event) => {
    SplitOddAndEven(Numbers)
+   displayOdd.innerText = OddNumbers;
+   displayEven.innerText = EvenNumbers;
    
 };
 
