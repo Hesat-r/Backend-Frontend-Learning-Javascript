@@ -16,6 +16,9 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
     form(action='http://localhost:5000/submit', method='POST')    
      button(type='submit')#Split.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
       .p Split
+    form(action='http://localhost:5000/delete', method='POST')  
+     button(type='submit')#Split.button.is-Danger.is-large.is-half.has-text-white.ml-3
+      .p Delete 
   form(action='http://localhost:5000/', method='GET')
     #DisplayEven.textarea.textarea.readonly.mt-3
       .p Gerade Zahlen
