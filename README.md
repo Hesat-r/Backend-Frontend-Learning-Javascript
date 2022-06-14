@@ -1,3 +1,3 @@
 # SplitOddAndEven
 
-![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/screen.png)
+![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/Screen.png)
