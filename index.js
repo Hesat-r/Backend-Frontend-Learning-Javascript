@@ -4,7 +4,8 @@ const app = express();
 app.use(express.static('public'));
 
 app.set('view engine', 'pug');
-app.get('/', (req, res) => {
+
+app.get('/OddAndEven', (req, res) => {
     res.render('./index.pug');
 });
 

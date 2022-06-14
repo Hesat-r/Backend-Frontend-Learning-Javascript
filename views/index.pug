@@ -6,15 +6,17 @@ link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
 
 form.box
   .field
-    label.label Number
+    label#labelNumber.label Number
     .control
-      input.input(type="number", placeholder="Number")
-    button.button.is-primary.is-large.is-half.has-text-white.is.mt-6.ml-3
+      input#inputNumbers.input(type="number", placeholder="Number")
+    .textarea#DisplayNumbers.textarea.readonly.mt-6
+      .p Hinzugefügte Nummern
+    button#AddNumbers.button.is-primary.is-large.is-half.has-text-white.is.mt-6.ml-3
        .p Add Number
-    button.button.is-primary.is-large.is-half.has-text-white.is.mt-6.ml-6
+    button#Split.button.is-primary.is-large.is-half.has-text-white.is.mt-6.ml-6
        .p Split
-  .textarea.textarea.readonly.mt-6
+  .textarea#DisplayEven.textarea.readonly.mt-6
     .p Gerade Zahlen
-  .textarea.textarea.readonly.mt-5
+  .textarea#DisplayOdd.textarea.readonly.mt-5
     .p ungerade Zahlen  
 script(src="/js/SplitOddAndEven.js")
