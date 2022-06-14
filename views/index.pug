@@ -7,16 +7,17 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
     label#labelNumber.label Number
     form(action='http://localhost:5000/', method='POST')
       .control
-        input#inputNumbers.input(type='number', placeholder='Number')
+       input#inputNumbers.input(type='number', name='number', placeholder='Number') 
+       button(type="submit")#AddNumbers.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
+        .p Add Number
     form(action='http://localhost:5000/', method='GET')
-      #DisplayNumbers.textarea.textarea.readonly.mt-6
+      #DisplayNumbers.textarea.textarea.readonly.mt-3
         .p Hinzugefügte Nummern
-    button#AddNumbers.button.is-primary.is-large.is-half.has-text-white.is.mt-6.ml-3
-      .p Add Number
-    button#Split.button.is-primary.is-large.is-half.has-text-white.is.mt-6.ml-6
+    form(action='http://localhost:5000/submit', method='POST')    
+     button(type='submit')#Split.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
       .p Split
   form(action='http://localhost:5000/', method='GET')
-    #DisplayEven.textarea.textarea.readonly.mt-6
+    #DisplayEven.textarea.textarea.readonly.mt-3
       .p Gerade Zahlen
     #DisplayOdd.textarea.textarea.readonly.mt-5
       .p ungerade Zahlen 
