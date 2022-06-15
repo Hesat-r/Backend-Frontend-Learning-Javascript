@@ -8,6 +8,8 @@ let Numbers=[];
 let OddNumbers=[];
 let EvenNumbers=[];
 
+
+
 function SplitOddAndEven(Numbers) {
     for (let i = 0; i < Numbers.length; i++) {
         if (Numbers[i] % 2 == 0) {
@@ -69,11 +71,14 @@ app.get('/api',(req,res) => {
     
 });
 
-app.get('/api/:_id',function(req,res){
-    fetchid = req.params._id;
-    NumberSchema.find(({_id:fetchid}),function(err,val){
-        res.send(val)
-    })
+app.get('/api/:id',(req,res) =>{
+    fetchid = req.params.id;
+    NumberSchema.findById(fetchid).then((result) => {
+        res.send(result)
+        })
+        .catch((err) => {
+            console.log(err);
+        })
 });
 app.post('/delete',(req,res) => {
     res.render('./index.pug');

@@ -24,9 +24,9 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
       .p Gerade Zahlen
      #DisplayOdd.textarea.textarea.readonly.mt-5
       .p ungerade Zahlen
-    form(action="http://localhost:5000/", method='POST')
-     input.input.is-rounded(type='Number' placeholder='ID',name='ID')
-     button.button.is-primary.is-light.mt-3 Search
+    input#id.input.is-rounded(type='text' placeholder='id',name='id')
+    button#search.button.is-primary.is-light.mt-3(onclick='getApi()') Search
+
 
         
   
@@ -43,4 +43,19 @@ script.
   displayOdd.innerText = 'All Odd Numbers: ' + OddNumbers;
   console.log(data);
   }
-  getData();
+  async function getApi(){
+  const id = document.getElementById('id').value;
+  const displayOdd = document.getElementById('DisplayOdd');
+  const displayEven = document.getElementById('DisplayEven');
+  const displayNumbers = document.getElementById('DisplayNumbers');
+  const response = await fetch('http://localhost:5000/api/' + id);
+  const data = await response.json();
+  const {numbers, oddNumbers, evenNumbers} = data;
+  displayNumbers.innerText = 'All Numbers2: ' + numbers;
+  displayEven.innerText = 'All Even Numbers2: '+ evenNumbers;
+  displayOdd.innerText = 'All Odd Numbers2: ' + oddNumbers;
+  console.log(data);
+  return 'Erfolgreich Gefetcht';
+  }
+ getData();
+ 
