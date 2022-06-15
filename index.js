@@ -25,26 +25,24 @@ app.use(cors());
 app.use(express.static('public'));
 app.set('view engine', 'pug');
 
-
+const number = {
+    numbers: Numbers,
+    oddNumbers: OddNumbers,
+    evenNumbers: EvenNumbers
+    
+}
 const connectToMongoDB = async() => {
     await mongo().then(async (mongoose) => {
         try{
         console.log('connected to mongodb!');
-
-        const number = {
-            numbers: Numbers,
-            oddNumbers: OddNumbers,
-            evenNumbers: EvenNumbers
-            
-        }
-        await  new NumberSchema(number).save();
+        
     }finally{
         mongoose.connection.clo
 
     }
   })
 }
-
+connectToMongoDB();
 app.get('/', (req, res) => {
     res.render('./index.pug');
 });
@@ -61,10 +59,10 @@ app.post('/',(req,res) => {
     console.log(Numbers);
 });
 
-app.post('/submit',(req,res) => {
+app.post('/submit', async(req,res) => {
     res.render('./index.pug');
     console.log(SplitOddAndEven(Numbers));
-    connectToMongoDB();
+    await  new NumberSchema(number).save();
 });
 app.get('/api',(req,res) => {
     res.json({"Numbers":Numbers ,"OddNumbers":OddNumbers, "EvenNumbers":EvenNumbers});
