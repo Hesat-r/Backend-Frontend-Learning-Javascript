@@ -78,7 +78,7 @@ app.get('/api/:id',(req,res) =>{
         })
         .catch((err) => {
             console.log(err);
-        })
+        })    
 });
 app.post('/delete',(req,res) => {
     res.render('./index.pug');

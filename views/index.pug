@@ -51,9 +51,9 @@ script.
   const response = await fetch('http://localhost:5000/api/' + id);
   const data = await response.json();
   const {numbers, oddNumbers, evenNumbers} = data;
-  displayNumbers.innerText = 'All Numbers2: ' + numbers;
-  displayEven.innerText = 'All Even Numbers2: '+ evenNumbers;
-  displayOdd.innerText = 'All Odd Numbers2: ' + oddNumbers;
+  displayNumbers.innerText = 'All Numbers: ' + numbers;
+  displayEven.innerText = 'All Even Numbers: '+ evenNumbers;
+  displayOdd.innerText = 'All Odd Numbers: ' + oddNumbers;
   console.log(data);
   return 'Erfolgreich Gefetcht';
   }
