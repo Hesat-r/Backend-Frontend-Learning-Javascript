@@ -15,9 +15,9 @@ let regex = /^[0-9]+$/;
 function SplitOddAndEven(Numbers) {
     for (let i = 0; i < Numbers.length; i++) {
         if (Numbers[i] % 2 == 0) {
-            EvenNumbers.push(Numbers[i]);
+            EvenNumbers.push(Numbers[i] + ' ');
         } else {
-            OddNumbers.push(Numbers[i]);
+            OddNumbers.push(Numbers[i] + '');
         }
     }
     return [OddNumbers, EvenNumbers];

@@ -24,3 +24,17 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
       .p Gerade Zahlen
     #DisplayOdd.textarea.textarea.readonly.mt-5
       .p ungerade Zahlen 
+script.
+  async function getData(){
+  const displayOdd = document.getElementById('DisplayOdd');
+  const displayEven = document.getElementById('DisplayEven');
+  const displayNumbers = document.getElementById('DisplayNumbers');
+  const response = await fetch('http://localhost:5000/api');
+  const data = await response.json();
+  const {Numbers, OddNumbers, EvenNumbers} = data;
+  displayNumbers.innerText = 'All Numbers: ' + Numbers;
+  displayEven.innerText = 'All Even Numbers: '+ EvenNumbers;
+  displayOdd.innerText = 'All Odd Numbers: ' + OddNumbers;
+  console.log(data);
+  }
+  getData();

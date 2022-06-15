@@ -9,12 +9,11 @@ let EvenNumbers=[];
 function SplitOddAndEven(Numbers) {
     for (let i = 0; i < Numbers.length; i++) {
         if (Numbers[i] % 2 == 0) {
-            EvenNumbers.push(Numbers[i]);
+            EvenNumbers.push(' '+ Numbers[i] + ' ');
         } else {
-            OddNumbers.push(Numbers[i]);
+            OddNumbers.push(' '+ Numbers[i] + ' ');
         }
     }
-    console.log(OddNumbers,EvenNumbers);
     return ['Ungerade Zahlen',OddNumbers,'Gerade Zahlen', EvenNumbers];
 }
 
@@ -30,7 +29,13 @@ app.get('/', (req, res) => {
 
 app.post('/',(req,res) => {
     res.render('./index.pug');
-    Numbers.push(req.body.number);
+    if(req.body.number < 0){
+        return 'Sie müssen eine positive Zahl eingeben';
+    }
+    if(/^[0-9]+$/.test(req.body.number)){
+        Numbers.push(' '+req.body.number + ' ');
+    }
+    
     console.log(Numbers);
 });
 
@@ -38,9 +43,17 @@ app.post('/submit',(req,res) => {
     res.render('./index.pug');
     console.log(SplitOddAndEven(Numbers));
 });
+app.get('/api',(req,res) => {
+    res.json({"Numbers":Numbers ,"OddNumbers":OddNumbers, "EvenNumbers":EvenNumbers});
+});
+
 app.post('/delete',(req,res) => {
-    Numbers = []
+    res.render('./index.pug');
+    Numbers.length = 0;
+    OddNumbers.length = 0;
+    EvenNumbers.length = 0;
     console.log(Numbers);
-    })
+    });
+
 app.listen(5000);
 console.log('Server is running on port 5000');
