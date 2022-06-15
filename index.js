@@ -68,6 +68,13 @@ app.get('/api',(req,res) => {
     res.json({"Numbers":Numbers ,"OddNumbers":OddNumbers, "EvenNumbers":EvenNumbers});
     
 });
+
+app.get('/api/:_id',function(req,res){
+    fetchid = req.params._id;
+    NumberSchema.find(({_id:fetchid}),function(err,val){
+        res.send(val)
+    })
+});
 app.post('/delete',(req,res) => {
     res.render('./index.pug');
     Numbers.length = 0;
