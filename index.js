@@ -2,6 +2,8 @@ const express  = require('express');
 const app = express();
 const BodyParser = require('body-parser');
 const cors = require('cors');
+const mongo = require('./js/MongoCon.js');
+const NumberSchema = require('./Schemas/Number-schema.js');
 let Numbers=[];
 let OddNumbers=[];
 let EvenNumbers=[];
@@ -17,11 +19,31 @@ function SplitOddAndEven(Numbers) {
     return ['Ungerade Zahlen',OddNumbers,'Gerade Zahlen', EvenNumbers];
 }
 
-app.use(BodyParser.json());
-app.use(BodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(express.static('public'));
 app.set('view engine', 'pug');
+
+
+const connectToMongoDB = async() => {
+    await mongo().then(async (mongoose) => {
+        try{
+        console.log('connected to mongodb!');
+
+        const number = {
+            numbers: Numbers,
+            oddNumbers: OddNumbers,
+            evenNumbers: EvenNumbers
+            
+        }
+        await  new NumberSchema(number).save();
+    }finally{
+        mongoose.connection.clo
+
+    }
+  })
+}
 
 app.get('/', (req, res) => {
     res.render('./index.pug');
@@ -42,11 +64,12 @@ app.post('/',(req,res) => {
 app.post('/submit',(req,res) => {
     res.render('./index.pug');
     console.log(SplitOddAndEven(Numbers));
+    connectToMongoDB();
 });
 app.get('/api',(req,res) => {
     res.json({"Numbers":Numbers ,"OddNumbers":OddNumbers, "EvenNumbers":EvenNumbers});
+    
 });
-
 app.post('/delete',(req,res) => {
     res.render('./index.pug');
     Numbers.length = 0;
