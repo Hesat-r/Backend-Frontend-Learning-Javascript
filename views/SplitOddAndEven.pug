@@ -1,0 +1,61 @@
+meta(charset='utf-8')
+meta(name='viewport', content='width=device-width, initial-scale=1')
+title OddAndEvenSpliter 
+link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css')
+.box
+  .field
+    label#labelNumber.label Number
+    form(action='http://localhost:5000/SplitOddAndEven/', method='POST')
+      .control
+       input#inputNumbers.input(type='number', name='number', placeholder='Number') 
+       button(type="submit")#AddNumbers.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
+        .p Add Number
+    form(action='http://localhost:5000/SplitOddAndEven/', method='GET')
+      #DisplayNumbers.textarea.textarea.readonly.mt-3
+        .p Hinzugefügte Nummern
+    form(action='http://localhost:5000/SplitOddAndEven/submit', method='POST')    
+     button(type='submit')#Split.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
+      .p Split
+    form(action='http://localhost:5000/SplitOddAndEven/delete', method='POST')  
+     button(type='submit')#Split.button.is-Danger.is-large.is-half.has-text-white.ml-3
+      .p Delete 
+    form(action='http://localhost:5000/SplitOddAndEven/', method='GET')
+     #DisplayEven.textarea.textarea.readonly.mt-3
+      .p Gerade Zahlen
+     #DisplayOdd.textarea.textarea.readonly.mt-5
+      .p ungerade Zahlen
+    input#id.input.is-rounded(type='text' placeholder='id',name='id')
+    button#search.button.is-primary.is-light.mt-3(onclick='getApi()') Search
+
+
+        
+  
+script.
+  async function getData(){
+  const displayOdd = document.getElementById('DisplayOdd');
+  const displayEven = document.getElementById('DisplayEven');
+  const displayNumbers = document.getElementById('DisplayNumbers');
+  const response = await fetch('http://localhost:5000/SplitOddAndEven/api');
+  const data = await response.json();
+  const {Numbers, OddNumbers, EvenNumbers} = data;
+  displayNumbers.innerText = 'All Numbers: ' + Numbers;
+  displayEven.innerText = 'All Even Numbers: '+ EvenNumbers;
+  displayOdd.innerText = 'All Odd Numbers: ' + OddNumbers;
+  console.log(data);
+  }
+  async function getApi(){
+  const id = document.getElementById('id').value;
+  const displayOdd = document.getElementById('DisplayOdd');
+  const displayEven = document.getElementById('DisplayEven');
+  const displayNumbers = document.getElementById('DisplayNumbers');
+  const response = await fetch('http://localhost:5000/SplitOddAndEven/api/' + id);
+  const data = await response.json();
+  const {numbers, oddNumbers, evenNumbers} = data;
+  displayNumbers.innerText = 'All Numbers: ' + numbers;
+  displayEven.innerText = 'All Even Numbers: '+ evenNumbers;
+  displayOdd.innerText = 'All Odd Numbers: ' + oddNumbers;
+  console.log(data);
+  return 'Erfolgreich Gefetcht';
+  }
+ getData();
+ 

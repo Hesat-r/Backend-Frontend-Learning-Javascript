@@ -45,12 +45,14 @@ const connectToMongoDB = async() => {
   })
 }
 connectToMongoDB();
+app.get('/SplitOddAndEven', (req, res) => {
+    res.render('./SplitOddAndEven.pug');
+});
 app.get('/', (req, res) => {
     res.render('./index.pug');
 });
-
-app.post('/',(req,res) => {
-    res.render('./index.pug');
+app.post('/SplitOddAndEven',(req,res) => {
+    res.render('./SplitOddAndEven.pug');
     if(req.body.number < 0){
         return 'Sie müssen eine positive Zahl eingeben';
     }
@@ -61,27 +63,28 @@ app.post('/',(req,res) => {
     console.log(Numbers);
 });
 
-app.post('/submit', async(req,res) => {
-    res.render('./index.pug');
+app.post('/SplitOddAndEven/submit', async(req,res) => {
+    res.render('./SplitOddAndEven.pug');
     console.log(SplitOddAndEven(Numbers));
     await  new NumberSchema(number).save();
 });
-app.get('/api',(req,res) => {
+app.get('/SplitOddAndEven/api',(req,res) => {
     res.json({"Numbers":Numbers ,"OddNumbers":OddNumbers, "EvenNumbers":EvenNumbers});
     
 });
 
-app.get('/api/:id',(req,res) =>{
+app.get('/SplitOddAndEven/api/:id',(req,res) =>{
     fetchid = req.params.id;
     NumberSchema.findById(fetchid).then((result) => {
         res.send(result)
         })
         .catch((err) => {
             console.log(err);
-        })    
+        })
+    
 });
-app.post('/delete',(req,res) => {
-    res.render('./index.pug');
+app.post('/SplitOddAndEven/delete',(req,res) => {
+    res.render('./SplitOddAndEven.pug');
     Numbers.length = 0;
     OddNumbers.length = 0;
     EvenNumbers.length = 0;
