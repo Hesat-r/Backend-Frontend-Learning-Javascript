@@ -5,7 +5,7 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
 .box
   .field
     label#labelNumber.label Number
-    form(action='http://localhost:5000/SplitOddAndEven/', method='POST')
+    form(action='http://localhost:5000/SplitOddAndEven/addnumber', method='POST')
       .control
        input#inputNumbers.input(type='number', name='number', placeholder='Number') 
        button(type="submit")#AddNumbers.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
