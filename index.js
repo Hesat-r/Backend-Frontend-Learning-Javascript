@@ -1,6 +1,6 @@
 const express  = require('express');
 const app = express();
-const BodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongo = require('./Database/MongoCon.js');
 const SplitOddAndEvenRoute = require('./routes/SplitOddAndEvenRoute.js');
@@ -8,9 +8,9 @@ const CharCounterRoute = require('./routes/CharCounterRoute.js');
 
 
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// app.use(bodyParser());
 app.use(cors());
 app.use(express.static('public'));
 app.set('view engine', 'pug');
@@ -31,7 +31,6 @@ connectToMongoDB();
 
 app.use('/SplitOddAndEven', SplitOddAndEvenRoute)
 app.use('/charcounter', CharCounterRoute);
-
 app.get('/', (req, res) => {
     res.render('./index.pug');
 });
