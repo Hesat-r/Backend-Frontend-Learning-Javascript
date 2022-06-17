@@ -12,7 +12,7 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
         .p Add Number
     form(action='http://localhost:5000/SplitOddAndEven/', method='GET')
       #DisplayNumbers.textarea.textarea.readonly.mt-3
-        .p Hinzugefügte Nummern
+        .p  #{numbers}
     form(action='http://localhost:5000/SplitOddAndEven/submit', method='POST')    
      button(type='submit')#Split.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
       .p Split

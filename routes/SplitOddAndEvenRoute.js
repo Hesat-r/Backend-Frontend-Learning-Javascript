@@ -5,6 +5,7 @@ let Numbers=[];
 let OddNumbers=[];
 let EvenNumbers=[];
 
+
 function SplitOddAndEven(Numbers) {
     for (let i = 0; i < Numbers.length; i++) {
         if (Numbers[i] % 2 == 0) {

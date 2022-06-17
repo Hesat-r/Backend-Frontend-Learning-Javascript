@@ -4,7 +4,7 @@ const BodyParser = require('body-parser');
 const cors = require('cors');
 const mongo = require('./Database/MongoCon.js');
 const SplitOddAndEvenRoute = require('./routes/SplitOddAndEvenRoute.js');
-
+const CharCounterRoute = require('./routes/CharCounterRoute.js');
 
 
 
@@ -30,6 +30,7 @@ const connectToMongoDB = async() => {
 connectToMongoDB();
 
 app.use('/SplitOddAndEven', SplitOddAndEvenRoute)
+app.use('/charcounter', CharCounterRoute);
 
 app.get('/', (req, res) => {
     res.render('./index.pug');
