@@ -12,7 +12,7 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
         .p Add Number
     form(action='http://localhost:5000/SplitOddAndEven/', method='GET')
       #DisplayNumbers.textarea.textarea.readonly.mt-3
-        .p  #{numbers}
+        .p Alle Nummern:
     form(action='http://localhost:5000/SplitOddAndEven/submit', method='POST')    
      button(type='submit')#Split.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
       .p Split
@@ -21,9 +21,9 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
       .p Delete 
     form(action='http://localhost:5000/SplitOddAndEven/', method='GET')
      #DisplayEven.textarea.textarea.readonly.mt-3
-      .p Gerade Zahlen
+      .p Gerade Zahlen:
      #DisplayOdd.textarea.textarea.readonly.mt-5
-      .p ungerade Zahlen 
+      .p ungerade Zahlen:
     input#id.input.is-rounded(type='text' placeholder='id',name='id')
     button#search.button.is-primary.is-light.mt-3(onclick='getApi()') Search
 

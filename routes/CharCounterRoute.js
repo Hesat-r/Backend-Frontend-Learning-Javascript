@@ -20,7 +20,13 @@ router.post('/count', (req, res,next) => {
             charCount[char] = 1;
         }
     }
-    res.render('./CharCounter.pug', { charCount: charCount });
+    let char = Object.keys(charCount);
+    let count = Object.values(charCount); 
+    let charCountString = '';
+    for (let i = 0; i < char.length; i++) {
+        charCountString += char[i] + ':' + count[i] + '  ';
+    }
+    res.render('./CharCounter.pug', { result: charCountString });
     console.log(charCount);
     next();
 });

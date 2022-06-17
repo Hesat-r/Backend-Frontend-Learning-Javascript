@@ -7,6 +7,6 @@ body.has-background-black-ter
 form(action='http://localhost:5000/charcounter/count', method='POST')
  textarea.textarea.has-text-black(placeholder='Text', name='chars')
  #Display.textarea.textarea.readonly.mt-3
-    .p #{ charCount }      
+    .p #{result}     
  button(type='submit').button.is-rounded.is-medium.is-fullwidth.is-primary.mt-5 CharCounter
 

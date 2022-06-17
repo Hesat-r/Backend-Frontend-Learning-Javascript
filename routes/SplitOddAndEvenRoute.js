@@ -43,7 +43,7 @@ router.post('/addnumber',(req,res,next) => {
 });
 
 router.post('/submit', async(req,res,next) => {
-    res.render('./SplitOddAndEven.pug');
+    res.render('./SplitOddAndEven.pug',{Numbers: Numbers, OddNumbers: OddNumbers, EvenNumbers: EvenNumbers});
     console.log(SplitOddAndEven(Numbers));
     await  new NumberSchema(number).save();
     next();
