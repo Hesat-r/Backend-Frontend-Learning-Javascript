@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser')
 
+let char;
+let count; 
+let charCountString = '';
 router.get('/', (req, res,next) => {
     res.render('./CharCounter.pug');
     next();
@@ -20,14 +23,14 @@ router.post('/count', (req, res,next) => {
             charCount[char] = 1;
         }
     }
-    let char = Object.keys(charCount);
-    let count = Object.values(charCount); 
-    let charCountString = '';
+   char = Object.keys(charCount);
+   count = Object.values(charCount); 
+
     for (let i = 0; i < char.length; i++) {
-        charCountString += char[i] + ':' + count[i] + '  ';
+        charCountString += char[i] + ': ' + count[i] + '\n';
     }
     res.render('./CharCounter.pug', { result: charCountString });
-    console.log(charCount);
+    console.log(charCount); 
     next();
 });
 
