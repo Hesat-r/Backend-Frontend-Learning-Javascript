@@ -49,17 +49,6 @@ router.post('/submit', async(req,res,next) => {
     next();
 });
 
-router.get('/api/:id',async (req,res,next) =>{
-    fetchid = req.params.id;
-    await NumberSchema.findById(fetchid).then((result) => {
-        res.send(result)
-        })
-        .catch((err) => {
-            res.send(err)
-        })
-        console.log('ID ROUTE ' + fetchid);
-        next();
-});
 router.get('/api',(req,res,next) => {
     res.json({"Numbers":Numbers ,"OddNumbers":OddNumbers, "EvenNumbers":EvenNumbers});
    next();
@@ -72,5 +61,4 @@ router.post('/delete',(req,res) => {
     EvenNumbers.length = 0;
     console.log(Numbers);
     });
-
-    module.exports = router;
+    module.exports = router, Numbers,OddNumbers,EvenNumbers;
