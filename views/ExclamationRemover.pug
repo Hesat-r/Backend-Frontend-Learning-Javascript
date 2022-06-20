@@ -1,11 +1,10 @@
 meta(charset='utf-8')
 meta(name='viewport', content='width=device-width, initial-scale=1')
 link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css')
+body.has-background-dark
 head
   title ExclamationRemover 
-body.has-background-dark
 form(action='http://localhost:5000/ExclamationRemover/', method='POST')
- textarea.textarea(placeholder='Your Text', name='text',type='text')
-textarea.textarea.mt-5(placeholder='Result', name='result', id='result') 
-form(action='http://localhost:5000/ExclamationRemover/', method='POST')
- button.button.is-success.is-rounded.mt-6.is-large.is-fullwidth Start
+ textarea.textarea(placeholder='Your Text', name='text', type='text')  
+ textarea.textarea.mt-5(readonly='' name='result', id='result') 
+ button.button(type='submit').is-success.is-rounded.mt-6.is-large.is-fullwidth Start
