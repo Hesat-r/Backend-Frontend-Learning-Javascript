@@ -6,7 +6,7 @@ const mongo = require('./Database/MongoCon.js');
 const SplitOddAndEvenRoute = require('./routes/SplitOddAndEvenRoute.js');
 const CharCounterRoute = require('./routes/CharCounterRoute.js');
 const api = require('./api/api.js');
-
+const ExclamationRemoverRoute = require('./routes/ExclamationRemoverRoute.js');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -33,6 +33,7 @@ connectToMongoDB();
 app.use('/SplitOddAndEven', SplitOddAndEvenRoute)
 app.use('/charcounter', CharCounterRoute);
 app.use('/api',api);
+app.use('/ExclamationRemover', ExclamationRemoverRoute);
 app.get('/', (req, res) => {
     res.render('./index.pug');
 });
