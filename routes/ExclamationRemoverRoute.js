@@ -20,9 +20,9 @@ function removeExclamation(string) {
 }
 router.post('/',(req,res,next) => {
     console.log(req.body.text);
-    res.render('./ExclamationRemover.pug');
     result = removeExclamation(req.body.text);
     console.log(result);
+    res.render('./ExclamationRemover.pug', { result: result });
     next();
 
 });

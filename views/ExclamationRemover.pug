@@ -6,5 +6,7 @@ head
   title ExclamationRemover 
 form(action='http://localhost:5000/ExclamationRemover/', method='POST')
  textarea.textarea(placeholder='Your Text', name='text', type='text')  
- textarea.textarea.mt-5(readonly='' name='result', id='result') 
+
+ #Display.textarea.textarea.readonly.mt-3
+    .p #{result}
  button.button(type='submit').is-success.is-rounded.mt-6.is-large.is-fullwidth Start
