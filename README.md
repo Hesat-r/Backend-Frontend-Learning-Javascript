@@ -1,3 +1,9 @@
 # SplitOddAndEven
 
-![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/Screen.png)
+![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/split.png)
+
+
+# CharCounter 
+
+
+![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/char.png)
