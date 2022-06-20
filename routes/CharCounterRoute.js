@@ -1,10 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser')
-
+const CountSchema = require('/Users/hesatredzepi/Desktop/SplittOddAndEven/Database/Schemas/Count-schema.js');
 let char;
 let count; 
 let charCountString = '';
+
+const chars2 = {
+    chars: charCountString
+    
+}
+
 router.get('/', (req, res,next) => {
     res.render('./CharCounter.pug');
     next();
@@ -18,7 +24,7 @@ router.post('/delete',(req,res,next) => {
     next();
 });
 
-router.post('/count', (req, res,next) => {
+router.post('/count', async (req, res,next) => {
     let string = req.body.chars;
     let charCount = {};
     for (let i = 0; i < string.length; i++) {
@@ -37,6 +43,15 @@ router.post('/count', (req, res,next) => {
     }
     res.render('./CharCounter.pug', { result: charCountString });
     console.log(charCount); 
+
+    const chars = {
+        chars: char,
+        count: count,
+        result: charCountString
+        
+    }
+    
+    await  new CountSchema(chars).save();
     next();
 });
 
