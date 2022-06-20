@@ -35,10 +35,15 @@ router.post('/count', async (req, res,next) => {
             charCount[char] = 1;
         }
     }
-   char = Object.keys(charCount);
+   char= Object.keys(charCount);
    count = Object.values(charCount); 
 
     for (let i = 0; i < char.length; i++) {
+
+        if(char[i] === ' '){
+            char[i] = ' Space ';
+        }
+
         charCountString += ' '+  char[i] + ' : '  + count[i];
     }
     res.render('./CharCounter.pug', { result: charCountString });
