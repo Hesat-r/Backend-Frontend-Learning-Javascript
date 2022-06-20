@@ -61,4 +61,4 @@ router.post('/delete',(req,res) => {
     EvenNumbers.length = 0;
     console.log(Numbers);
     });
-    module.exports = router, Numbers,OddNumbers,EvenNumbers;
+    module.exports = router;
