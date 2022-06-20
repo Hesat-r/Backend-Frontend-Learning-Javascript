@@ -10,7 +10,13 @@ router.get('/', (req, res,next) => {
     next();
 });
 
-
+router.post('/delete',(req,res,next) => {
+    charCountString = '';
+    char = '';
+    count = '';
+    res.render('./CharCounter.pug');
+    next();
+});
 
 router.post('/count', (req, res,next) => {
     let string = req.body.chars;
@@ -27,7 +33,7 @@ router.post('/count', (req, res,next) => {
    count = Object.values(charCount); 
 
     for (let i = 0; i < char.length; i++) {
-        charCountString += char[i] + ': ' + count[i] + '\n';
+        charCountString += ' '+  char[i] + ' : '  + count[i];
     }
     res.render('./CharCounter.pug', { result: charCountString });
     console.log(charCount); 
