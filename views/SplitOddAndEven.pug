@@ -12,7 +12,7 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
         .p Add Number
     form(action='http://localhost:5000/SplitOddAndEven/', method='GET')
       #DisplayNumbers.textarea.textarea.readonly.mt-3
-        .p #{Numbers}
+        .p Alle Nummern
     form(action='http://localhost:5000/SplitOddAndEven/submit', method='POST')    
      button(type='submit')#Split.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
       .p Split
@@ -21,9 +21,9 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
       .p Delete 
     form(action='http://localhost:5000/SplitOddAndEven/', method='GET')
      #DisplayEven.textarea.textarea.readonly.mt-3
-      .p #{EvenNumbers}
+      .p Gerade Zahlen
      #DisplayOdd.textarea.textarea.readonly.mt-5
-      .p #{OddNumbers}
+      .p ungerade Zahlen 
     input#id.input.is-rounded(type='text' placeholder='id',name='id')
     button#search.button.is-primary.is-light.mt-3(onclick='getApi()') Search
 
@@ -32,9 +32,15 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
   
 script.
   async function getData(){
+  const displayOdd = document.getElementById('DisplayOdd');
+  const displayEven = document.getElementById('DisplayEven');
+  const displayNumbers = document.getElementById('DisplayNumbers');
   const response = await fetch('http://localhost:5000/SplitOddAndEven/api');
   const data = await response.json();
   const {Numbers, OddNumbers, EvenNumbers} = data;
+  displayNumbers.innerText = 'All Numbers: ' + Numbers;
+  displayEven.innerText = 'All Even Numbers: '+ EvenNumbers;
+  displayOdd.innerText = 'All Odd Numbers: ' + OddNumbers;
   console.log(data);
   }
   async function getApi(){
@@ -42,7 +48,7 @@ script.
   const displayOdd = document.getElementById('DisplayOdd');
   const displayEven = document.getElementById('DisplayEven');
   const displayNumbers = document.getElementById('DisplayNumbers');
-  const response = await fetch('http://localhost:5000/api/SplitOddAndEven/' + id);
+  const response = await fetch('http://localhost:5000/SplitOddAndEven/api/' + id);
   const data = await response.json();
   const {numbers, oddNumbers, evenNumbers} = data;
   displayNumbers.innerText = 'All Numbers: ' + numbers;

@@ -2,6 +2,14 @@ const express = require('express');
 const router = express.Router();
 const NumberSchema = require('/Users/hesatredzepi/Desktop/SplittOddAndEven/Database/Schemas/Number-schema.js');
 const CountSchema = require('/Users/hesatredzepi/Desktop/SplittOddAndEven/Database/Schemas/Count-schema.js');
+const SplitOddAndEvenRoute = require('/Users/hesatredzepi/Desktop/SplittOddAndEven/routes/SplitOddAndEvenRoute.js');
+let Numbers=[];
+let OddNumbers=[];
+let EvenNumbers=[];
+
+EvenNumbers= SplitOddAndEvenRoute.EvenNumbers;
+OddNumbers= SplitOddAndEvenRoute.OddNumbers;
+Numbers= SplitOddAndEvenRoute.Numbers;
 
 router.get('/SplitOddAndEven/:id',async (req,res,next) =>{
     fetchid = req.params.id;
@@ -14,7 +22,6 @@ router.get('/SplitOddAndEven/:id',async (req,res,next) =>{
         console.log('ID ROUTE ' + fetchid);
         next();
 });
-
 router.get('/CharCounter/:id',async (req,res,next) =>{
     fetchid = req.params.id;
     await CountSchema.findById(fetchid).then((result) => {
@@ -26,5 +33,8 @@ router.get('/CharCounter/:id',async (req,res,next) =>{
         console.log('ID ROUTE ' + fetchid);
         next();
 });
-
+router.get('/api',(req,res,next) => {
+    res.json({"Numbers":Numbers ,"OddNumbers":OddNumbers, "EvenNumbers":EvenNumbers});
+   next();
+});
 module.exports = router;
