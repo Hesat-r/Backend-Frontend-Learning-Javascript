@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bodyParser = require('body-parser')
-const CountSchema = require('/Users/hesatredzepi/Desktop/SplittOddAndEven/Database/Schemas/Count-schema.js');
+const CountSchema = require('../Database/Schemas/Count-schema');
 let char;
 let count; 
 let charCountString = '';

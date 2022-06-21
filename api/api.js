@@ -12,7 +12,7 @@ router.get('/SplitOddAndEven/:id',async (req,res,next) =>{
         .catch((err) => {
             res.send(err)
         })
-        console.log('ID ROUTE ' + fetchid);
+        console.log('SPLIT ID ' + fetchid);
         next();
 });
 router.get('/CharCounter/:id',async (req,res,next) =>{
@@ -23,7 +23,7 @@ router.get('/CharCounter/:id',async (req,res,next) =>{
         .catch((err) => {
             res.send(err)
         })
-        console.log('ID ROUTE ' + fetchid);
+        console.log('CHARCOUNTER ID ' + fetchid);
         next();
 });
 router.get('/ExclamationRemover/:id',async (req,res,next) =>{
@@ -34,7 +34,7 @@ router.get('/ExclamationRemover/:id',async (req,res,next) =>{
         .catch((err) => {
             res.send(err)
         })
-        console.log('ID ROUTE ' + fetchid);
+        console.log('EXCLAMATION ID ' + fetchid);
         next();
 });
 

@@ -7,7 +7,7 @@ const SplitOddAndEvenRoute = require('./routes/SplitOddAndEvenRoute.js');
 const CharCounterRoute = require('./routes/CharCounterRoute.js');
 const api = require('./api/api.js');
 const ExclamationRemoverRoute = require('./routes/ExclamationRemoverRoute.js');
-
+const PointCalc = require('./routes/PointCalcRoute.js');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser());
@@ -29,7 +29,7 @@ const connectToMongoDB = async() => {
 }
 connectToMongoDB();
 
-
+app.use('/PointCalculator',PointCalc);
 app.use('/SplitOddAndEven', SplitOddAndEvenRoute)
 app.use('/charcounter', CharCounterRoute);
 app.use('/api',api);
