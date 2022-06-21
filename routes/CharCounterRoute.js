@@ -2,14 +2,9 @@ const express = require('express');
 const router = express.Router();
 const CountSchema = require('../Database/Schemas/Count-schema');
 const charcounter = require('../lib/charcounter');
-let char;
-let count; 
-let charCountString = '';
+let result;
 
-const chars2 = {
-    chars: charCountString
-    
-}
+
 
 router.get('/', (req, res,next) => {
     res.render('./CharCounter.pug');
@@ -17,28 +12,19 @@ router.get('/', (req, res,next) => {
 });
 
 router.post('/delete',(req,res,next) => {
-    charCountString = '';
-    char = '';
-    count = '';
+    charcounter.deletecounter();
     res.render('./CharCounter.pug');
+    console.log('deleted');
     next();
 });
 
 router.post('/count', async (req, res,next) => {
-
-    console.log(charcounter.counter(req.body.chars));
+    result = charcounter.counter(req.body.chars)[0];
    
-    res.render('./CharCounter.pug');
+    res.render('./CharCounter.pug', { result : result});
    
+    console.log(result);
 
-    const chars = {
-        chars: char,
-        count: count,
-        result: charCountString
-        
-    }
-    
-    await  new CountSchema(chars).save();
     next();
 });
 
