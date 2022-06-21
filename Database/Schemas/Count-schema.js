@@ -5,4 +5,4 @@ const CountSchema = mongoose.Schema({
     count: Array,
     result: String
     })
-    module.exports = mongoose.model('chars', CountSchema);
+    module.exports = mongoose.model('charscount', CountSchema);
