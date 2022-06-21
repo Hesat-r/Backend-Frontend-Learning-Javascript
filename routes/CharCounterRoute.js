@@ -18,7 +18,7 @@ router.post('/delete',(req,res,next) => {
     next();
 });
 
-router.post('/count', async (req, res,next) => {
+router.post('/', async (req, res,next) => {
     result = charcounter.counter(req.body.chars)[0];
    
     res.render('./CharCounter.pug', { result : result});

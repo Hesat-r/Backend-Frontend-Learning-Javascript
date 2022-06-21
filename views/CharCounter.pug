@@ -3,12 +3,12 @@ meta(name='viewport', content='width=device-width, initial-scale=1')
 title OddAndEvenSpliter 
 link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css')
 body.has-background-black-ter
-p.p.has-text-white Point Calculator
-form(action='http://localhost:5000/charcounter/count', method='POST')
- textarea.textarea.has-text-black(placeholder='Text', name='chars')
- #Display.textarea.textarea.readonly.mt-3
-    .p #{result}     
- button(type='submit').button.is-rounded.is-medium.is-fullwidth.is-primary.mt-5 CharCounter
-form(action='http://localhost:5000/charcounter/delete', method='POST')
- button(type='submit').button.is-rounded.is-medium.is-fullwidth.is-Danger.mt-5 Delete 
+ p.p.has-text-white Char Calculator
+ form(action='http://localhost:5000/charcounter/', method='POST')
+  textarea.textarea.has-text-black(placeholder='Text', name='chars')
+  #Display.textarea.textarea.readonly.mt-3
+     .p #{result}     
+  button(type='submit').button.is-rounded.is-medium.is-fullwidth.is-primary.mt-5 Count
+ form(action='http://localhost:5000/charcounter/delete', method='POST')
+  button(type='submit').button.is-rounded.is-medium.is-fullwidth.is-Danger.mt-5 Delete 
 
