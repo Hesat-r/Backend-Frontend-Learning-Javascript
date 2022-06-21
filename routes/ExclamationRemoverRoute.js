@@ -1,5 +1,6 @@
 const { text } = require('body-parser');
 const express = require('express');
+const ExclamationSchema = require('../Database/Schemas/Exclamation-schema');
 const router = express.Router();
 let result = '';
 
@@ -18,11 +19,17 @@ function removeExclamation(string) {
     }
     return textwithoutexclamation;
 }
-router.post('/',(req,res,next) => {
+router.post('/',async (req,res,next) => {
     console.log(req.body.text);
     result = removeExclamation(req.body.text);
     console.log(result);
     res.render('./ExclamationRemover.pug', { result: result });
+    const exclamation = {
+        blanktext: req.body.text,
+        result: result
+    }
+
+    await  new ExclamationSchema(exclamation).save();
     next();
 
 });
