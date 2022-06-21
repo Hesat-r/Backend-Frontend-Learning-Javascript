@@ -9,21 +9,21 @@ router.get('/', (req, res,next) => {
 });
 
 
-function Calculator(number1,number2) {
-    if(number1 === '' || number2 === ''){
+function Calculator(_number1,_number2) {
+    if(_number1 === '' || _number2 === ''){
         calc = 'You need to add a Number for Number 1 and Number 2';
        
-    }else if(number1 === number2){
+    }else if(_number1 === _number2){
         calc = 1;
-    }else if(number1 > number2){
+    }else if(_number1 > _number2){
         calc = 3;
-    }else if(number1 < number2){
+    }else if(_number1 < _number2){
         calc = 0;
     }
     if(result === NaN){
         result = 1;
     }
-    values.push(number1 + ' : ' + number2);
+    values.push(_number1 + ' : ' + _number2);
 
     result = calc + result;
     console.log(result);

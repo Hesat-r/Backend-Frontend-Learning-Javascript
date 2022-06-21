@@ -6,12 +6,12 @@ let OddNumbers=[];
 let EvenNumbers=[];
 
 
-function SplitOddAndEven(Numbers) {
-    for (let i = 0; i < Numbers.length; i++) {
-        if (Numbers[i] % 2 == 0) {
-            EvenNumbers.push(' '+ Numbers[i] + ' ');
+function SplitOddAndEven(_numbers) {
+    for (let i = 0; i < _numbers.length; i++) {
+        if (_numbers[i] % 2 == 0) {
+            EvenNumbers.push(' '+ _numbers[i] + ' ');
         } else {
-            OddNumbers.push(' '+ Numbers[i] + ' ');
+            OddNumbers.push(' '+ _numbers[i] + ' ');
         }
     }
     return ['Ungerade Zahlen',OddNumbers,'Gerade Zahlen', EvenNumbers];

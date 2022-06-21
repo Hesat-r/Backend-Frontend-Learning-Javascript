@@ -9,10 +9,10 @@ router.get('/', (req, res,next) => {
     next();
 });
 
-function removeExclamation(string) {
+function removeExclamation(_string) {
     let textwithoutexclamation = '';
-    for (let i = 0; i < string.length; i++) {
-        let char = string[i];
+    for (let i = 0; i < _string.length; i++) {
+        let char = _string[i];
         if (char !== '!') {
             textwithoutexclamation += char;
         }
