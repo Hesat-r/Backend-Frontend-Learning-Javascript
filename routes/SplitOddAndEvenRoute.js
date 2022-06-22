@@ -27,23 +27,7 @@ router.post('/submit', async(req,res,next) => {
     next();
 });
 
-router.get('/api/:id',async (req,res,next) =>{
-    fetchid = req.params.id;
-    await NumberSchema.findById(fetchid).then((result) => {
-        res.send(result)
-        })
-        .catch((err) => {
-            res.send(err)
-        })
-        console.log('ID ROUTE ' + fetchid);
-        next();
-});
 
-
-router.get('/api',(req,res,next) => {
-    res.json({"Numbers":numbers ,"OddNumbers":Odd, "EvenNumbers":Even});
-   next();
-});
 
 router.post('/delete',(req,res) => {
     res.render('./SplitOddAndEven.pug');

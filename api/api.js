@@ -5,6 +5,10 @@ const CountSchema = require('/Users/hesatredzepi/Desktop/SplittOddAndEven/Databa
 const ExclamationSchema = require('../Database/Schemas/Exclamation-schema.js');
 const spliter = require('../lib/SplitOddAndEven');
 
+let Odd = spliter.OddNumbers;
+let Even = spliter.EvenNumbers;
+let numbers = spliter.Numbers;
+
 
 router.get('/SplitOddAndEven/:id',async (req,res,next) =>{
     fetchid = req.params.id;
@@ -18,7 +22,10 @@ router.get('/SplitOddAndEven/:id',async (req,res,next) =>{
         next();
 });
 
-
+router.get('/SplitOddAndEven',(req,res,next) => {
+    res.json({"Numbers":numbers ,"OddNumbers":Odd, "EvenNumbers":Even});
+   next();
+});
 router.get('/CharCounter/:id',async (req,res,next) =>{
     fetchid = req.params.id;
     await CountSchema.findById(fetchid).then((result) => {
