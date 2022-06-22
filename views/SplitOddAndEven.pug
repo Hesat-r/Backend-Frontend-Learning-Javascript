@@ -1,6 +1,7 @@
 meta(charset='utf-8')
 meta(name='viewport', content='width=device-width, initial-scale=1')
 title OddAndEvenSpliter 
+p.p.has-text-white.has-background-dark.title.size-1.has-text-centered OddAndEvenSpliter 
 link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css')
 .box
   .field
@@ -12,7 +13,7 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
         .p Add Number
     form(action='http://localhost:5000/SplitOddAndEven/', method='GET')
       #DisplayNumbers.textarea.textarea.readonly.mt-3
-        .p Alle Nummern
+        .p Alle Nummern: #{numbers}
     form(action='http://localhost:5000/SplitOddAndEven/submit', method='POST')    
      button(type='submit')#Split.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
       .p Split
@@ -21,9 +22,9 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
       .p Delete 
     form(action='http://localhost:5000/SplitOddAndEven/', method='GET')
      #DisplayEven.textarea.textarea.readonly.mt-3
-      .p Gerade Zahlen
+      .p Gerade Zahlen: #{Even}
      #DisplayOdd.textarea.textarea.readonly.mt-5
-      .p ungerade Zahlen 
+      .p ungerade Zahlen: #{Odd}
     input#id.input.is-rounded(type='text' placeholder='id',name='id')
     button#search.button.is-primary.is-light.mt-3(onclick='getApi()') Search
 
@@ -31,18 +32,6 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
         
   
 script.
-  async function getData(){
-  const displayOdd = document.getElementById('DisplayOdd');
-  const displayEven = document.getElementById('DisplayEven');
-  const displayNumbers = document.getElementById('DisplayNumbers');
-  const response = await fetch('http://localhost:5000/api/SplitOddAndEven/');
-  const data = await response.json();
-  const {Numbers, OddNumbers, EvenNumbers} = data;
-  displayNumbers.innerText = 'All Numbers: ' + Numbers;
-  displayEven.innerText = 'All Even Numbers: '+ EvenNumbers;
-  displayOdd.innerText = 'All Odd Numbers: ' + OddNumbers;
-  console.log(data);
-  }
   async function getApi(){
   const id = document.getElementById('id').value;
   const displayOdd = document.getElementById('DisplayOdd');
@@ -57,5 +46,5 @@ script.
   console.log(data);
   return 'Erfolgreich Gefetcht';
   }
- getData();
+
  

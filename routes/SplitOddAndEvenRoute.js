@@ -14,18 +14,18 @@ router.get('/', (req, res,next) => {
 });
 
 router.post('/addnumber',(req,res,next) => {
-    res.render('./SplitOddAndEven.pug');
     numbers = spliter.addnumbers(req.body.number);
+    res.render('./SplitOddAndEven.pug', { numbers : numbers});
     next();
 });
 
 router.post('/submit', async(req,res,next) => {
-    res.render('./SplitOddAndEven.pug');
      values = spliter.split();
      Odd = values[0];
      Even = values[1];
      numbers = values[2];
     console.log('ODD Number : ' + Odd + ' EvenNumbers ' + Even+ ' Numbers ' + numbers);
+    res.render('./SplitOddAndEven.pug', { numbers : numbers , Odd : Odd, Even : Even});
     next();
 });
 
