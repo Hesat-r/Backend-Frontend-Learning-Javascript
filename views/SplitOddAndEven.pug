@@ -1,18 +1,19 @@
+body.has-background-dark
 meta(charset='utf-8')
 meta(name='viewport', content='width=device-width, initial-scale=1')
 title OddAndEvenSpliter 
 p.p.has-text-white.has-background-dark.title.size-1.has-text-centered OddAndEvenSpliter 
 link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css')
-.box
+.box.has-background-grey-darker
   .field
-    label#labelNumber.label Number
+    label#labelNumber.label.has-text-white Number
     form(action='http://localhost:5000/SplitOddAndEven/addnumber', method='POST')
       .control
-       input#inputNumbers.input(type='number', name='number', placeholder='Number') 
+       input#inputNumbers.input.has-background-grey-dark.has-text-grey-lighter(type='number', name='number', placeholder='Number') 
        button(type="submit")#AddNumbers.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
         .p Add Number
     form(action='http://localhost:5000/SplitOddAndEven/', method='GET')
-      #DisplayNumbers.textarea.textarea.readonly.mt-3
+      #DisplayNumbers.textarea.textarea.readonly.mt-3.has-background-grey-dark.has-text-grey-lighter
         .p Alle Nummern: #{numbers}
     form(action='http://localhost:5000/SplitOddAndEven/submit', method='POST')    
      button(type='submit')#Split.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
@@ -21,11 +22,11 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
      button(type='submit')#Split.button.is-Danger.is-large.is-half.has-text-white.ml-3
       .p Delete 
     form(action='http://localhost:5000/SplitOddAndEven/', method='GET')
-     #DisplayEven.textarea.textarea.readonly.mt-3
+     #DisplayEven.textarea.textarea.readonly.mt-3.has-background-grey-dark.has-text-grey-lighter
       .p Gerade Zahlen: #{Even}
-     #DisplayOdd.textarea.textarea.readonly.mt-5
+     #DisplayOdd.textarea.textarea.readonly.mt-5.has-background-grey-dark.has-text-grey-lighter
       .p ungerade Zahlen: #{Odd}
-    input#id.input.is-rounded(type='text' placeholder='id',name='id')
+    input#id.input.is-rounded.has-background-grey-dark.has-text-grey-lighter(type='text' placeholder='id',name='id')
     button#search.button.is-primary.is-light.mt-3(onclick='getApi()') Search
 
 
