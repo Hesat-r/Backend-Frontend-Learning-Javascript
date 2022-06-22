@@ -8,7 +8,8 @@ form(action='http://localhost:5000/AbbreviateName/', method='POST')
  .p.has-text-white.mt-1.ml-3 Your First and Last Name
        input#inputNumbers.input.mt-2.has-background-grey-dark.has-text-grey-lighter(type='text', name='input', placeholder='Your First and Last Name')
  .p.has-text-white.mt-1.ml-3 Result
-       input#inputNumbers.input.mt-2.has-background-grey-dark.has-text-grey-lighter(type='text', name='result', placeholder='Result', readonly)
+      #DisplayEven.textarea.textarea.readonly.mt-3.has-background-grey-dark.has-text-grey-lighter
+       .p Result: #{result}
  button(type="submit")#AddNumbers.button.is-primary.is-large.has-text-white.is.mt-3.ml-3
         .p Start
 
