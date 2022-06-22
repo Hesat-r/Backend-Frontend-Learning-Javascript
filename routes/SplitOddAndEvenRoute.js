@@ -3,17 +3,17 @@ const router = express.Router();
 const NumberSchema = require('/Users/hesatredzepi/Desktop/SplittOddAndEven/Database/Schemas/Number-schema.js');
 const spliter = require('../lib/SplitOddAndEven');
 let values;
-let Odd;
-let Even;
-let numbers;;
+let Odd = [];
+let Even = [];
+let numbers = [];
 router.get('/', (req, res,next) => {
     res.render('./SplitOddAndEven.pug');
     next();
 });
 
 router.post('/addnumber',(req,res,next) => {
-    Numbers = spliter.addnumbers(req.body.number);
     res.render('./SplitOddAndEven.pug');
+    numbers = spliter.addnumbers(req.body.number);
     next();
 });
 
