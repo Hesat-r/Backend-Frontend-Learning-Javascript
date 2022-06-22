@@ -9,7 +9,7 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
     label#labelNumber.label.has-text-white Number
     form(action='http://localhost:5000/SplitOddAndEven/addnumber', method='POST')
       .control
-       input#inputNumbers.input.has-background-grey-dark.has-text-grey-lighter(type='number', name='number', placeholder='Number') 
+       input#inputNumbers.input.has-background-grey-dark.has-text-grey-lighter.placeholder-color-white(type='number', name='number', placeholder='Number') 
        button(type="submit")#AddNumbers.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
         .p Add Number
     form(action='http://localhost:5000/SplitOddAndEven/', method='GET')
@@ -26,6 +26,7 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
       .p Gerade Zahlen: #{Even}
      #DisplayOdd.textarea.textarea.readonly.mt-5.has-background-grey-dark.has-text-grey-lighter
       .p ungerade Zahlen: #{Odd}
+    .p.has-text-white Search by ID  
     input#id.input.is-rounded.has-background-grey-dark.has-text-grey-lighter(type='text' placeholder='id',name='id')
     button#search.button.is-primary.is-light.mt-3(onclick='getApi()') Search
 
