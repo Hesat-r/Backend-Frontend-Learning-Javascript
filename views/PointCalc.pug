@@ -12,7 +12,15 @@ form(action='http://localhost:5000/PointCalculator', method='POST')
        button(type="submit")#AddNumbers.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
         .p Calculate
 #Display.textarea.textarea.readonly.mt-3
-  .p #{result}  
+ - var result2 = {result : result}
+  if(result2.result <= 10)
+    p.p.has-text-primary !{JSON.stringify(result2.result)}
+  else
+  if(result2.result < 20 && result2.result > 10)
+   p.p.has-text-Warning !{JSON.stringify(result2.result)}
+  else
+  if(result2.result > 20)
+   p.p.has-text-Danger !{JSON.stringify(result2.result)}
 form(action='http://localhost:5000/PointCalculator/delete', method='POST')      
  button(type="submit")#AddNumbers.button.is-Danger.is-large.is-half.has-text-white.is.mt-3.ml-3 
   .p Delete

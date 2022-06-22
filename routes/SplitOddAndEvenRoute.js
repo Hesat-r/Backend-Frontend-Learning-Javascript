@@ -6,6 +6,8 @@ let values;
 let Odd = [];
 let Even = [];
 let numbers = [];
+
+
 router.get('/', (req, res,next) => {
     res.render('./SplitOddAndEven.pug');
     next();
