@@ -5,8 +5,10 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
 body.has-background-black-ter
  p.p.has-text-white.title.size-1.has-text-centered Char Counter  
  form(action='http://localhost:5000/charcounter/', method='POST')
-  textarea.textarea.has-text-black(placeholder='Text', name='chars')
-  #Display.textarea.textarea.readonly.mt-3
+  .p.has-text-white.mt-3 Text
+  textarea.textarea.has-background-grey-dark.has-text-grey-lighter(placeholder='Text', name='chars')
+  .p.has-text-white.mt-3 Result
+  #Display.textarea.textarea.readonly.mt-2.has-background-grey-dark.has-text-grey-lighter
      .p #{result}     
   button(type='submit').button.is-rounded.is-medium.is-fullwidth.is-primary.mt-5 Count
  form(action='http://localhost:5000/charcounter/delete', method='POST')

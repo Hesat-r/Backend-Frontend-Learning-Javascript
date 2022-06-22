@@ -7,11 +7,14 @@ head
 p.p.has-text-white.title.size-1.has-text-centered Point Calculator  
 form(action='http://localhost:5000/PointCalculator', method='POST')
       .control
-       input#inputNumbers.input.mt-2(type='number', name='number1', placeholder='Number 1')
-       input#inputNumbers.input.mt-4(type='number', name='number2', placeholder='Number 2')  
+       .p.has-text-white.mt-1 Number 1
+       input#inputNumbers.input.mt-2.has-background-grey-dark.has-text-grey-lighter(type='number', name='number1', placeholder='Number 1')
+       .p.has-text-white.mt-3 Number 2
+       input#inputNumbers.input.mt-2.has-background-grey-dark.has-text-grey-lighter(type='number', name='number2', placeholder='Number 2')  
        button(type="submit")#AddNumbers.button.is-primary.is-large.is-half.has-text-white.is.mt-3.ml-3
         .p Calculate
-#Display.textarea.textarea.readonly.mt-3
+.p.has-text-white.mt-4 Result        
+#Display.textarea.textarea.readonly.mt-3.has-background-grey-dark.has-text-grey-lighter
  - var result2 = {result : result}
   if(result2.result <= 10)
     p.p.has-text-primary !{JSON.stringify(result2.result)}

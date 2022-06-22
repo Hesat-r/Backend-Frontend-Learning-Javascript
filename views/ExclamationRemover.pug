@@ -6,7 +6,9 @@ head
   title ExclamationRemover 
   p.p.has-text-white.title.size-1.has-text-centered Exclamation Remover  
 form(action='http://localhost:5000/ExclamationRemover/', method='POST')
- textarea.textarea(placeholder='Your Text', name='text', type='text')  
- #Display.textarea.textarea.readonly.mt-3
+ .p.has-text-white.mt-3 Text
+ textarea.textarea.has-background-grey-dark.has-text-grey-lighter.mb-2(placeholder='Your Text', name='text', type='text')  
+ .p.has-text-white.mt-3 Result
+ #Display.textarea.textarea.readonly.mt-1.has-background-grey-dark.has-text-grey-lighter
   .p #{result}
  button.button(type='submit').is-success.is-rounded.mt-6.is-large.is-fullwidth Start
