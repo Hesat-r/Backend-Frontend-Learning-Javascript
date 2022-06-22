@@ -16,7 +16,7 @@ form(action='http://localhost:5000/PointCalculator', method='POST')
   if(result2.result <= 10)
     p.p.has-text-primary !{JSON.stringify(result2.result)}
   else
-  if(result2.result < 20 && result2.result > 10)
+  if(result2.result <= 20 && result2.result > 10)
    p.p.has-text-Warning !{JSON.stringify(result2.result)}
   else
   if(result2.result > 20)
