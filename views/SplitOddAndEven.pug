@@ -1,10 +1,10 @@
-body.has-background-dark
+body.has-background-black-ter
 meta(charset='utf-8')
 meta(name='viewport', content='width=device-width, initial-scale=1')
 title OddAndEvenSpliter 
-p.p.has-text-white.has-background-dark.title.size-1.has-text-centered OddAndEvenSpliter 
+p.p.has-text-white.has-background-black-ter.title.size-1.has-text-centered OddAndEvenSpliter 
 link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css')
-.box.has-background-grey-darker
+.box.has-background-black-ter
   .field
     label#labelNumber.label.has-text-white Number
     form(action='http://localhost:5000/SplitOddAndEven/addnumber', method='POST')
@@ -29,7 +29,7 @@ link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.
     .p.has-text-white Search by ID  
     input#id.input.is-rounded.has-background-grey-dark.has-text-grey-lighter(type='text' placeholder='id',name='id')
     button#search.button.is-primary.is-light.mt-3(onclick='getApi()') Search
-
+footer.footer.has-background-black-ter
 
         
   
@@ -47,6 +47,6 @@ script.
   displayOdd.innerText = 'All Odd Numbers: ' + oddNumbers;
   console.log(data);
   return 'Erfolgreich Gefetcht';
-  }
+ }
 
  
