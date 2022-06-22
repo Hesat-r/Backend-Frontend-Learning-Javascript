@@ -1,17 +1,17 @@
 # SplitOddAndEven
 
-![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/split.png)
+![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/assets/split.png)
 
 
 # CharCounter 
 
 
-![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/char.png)
+![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/assets/char.png)
 
 # ExclamRemover
 
-![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/ExclamRemover.png)
+![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/assets/ExclamRemover.png)
 
 # PointCounter
 
-![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/pointcounter.png)
+![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/assets/pointcounter.png)
