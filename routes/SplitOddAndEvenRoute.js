@@ -39,19 +39,19 @@ router.get('/api/:id',async (req,res,next) =>{
         next();
 });
 
+
 router.get('/api',(req,res,next) => {
     res.json({"Numbers":numbers ,"OddNumbers":Odd, "EvenNumbers":Even});
    next();
 });
 
-
 router.post('/delete',(req,res) => {
     res.render('./SplitOddAndEven.pug');
-    Numbers.length = 0;
-    OddNumbers.length = 0;
-    EvenNumbers.length = 0;
+    Odd = '';
+    Even = '';
+    numbers = '';
     spliter.delete();
-    console.log(Numbers);
+    console.log('numbers deleted');
     });
 
     module.exports = router;
