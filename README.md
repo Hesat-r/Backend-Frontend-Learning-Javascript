@@ -11,3 +11,7 @@
 # ExclamRemover
 
 ![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/ExclamRemover.png)
+
+# PointCounter
+
+![Image](https://github.com/Hesat-r/SplitOddAndEven/blob/main/pointcounter.png)
