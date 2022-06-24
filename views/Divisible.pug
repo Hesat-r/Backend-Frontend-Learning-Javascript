@@ -8,7 +8,10 @@ form(action='http://localhost:5000/Divisible/AddNumber', method='POST')
   .p.has-text-white.mt-1.ml-3 Input
        input#inputNumbers.input.mt-2.has-background-grey-dark.has-text-grey-lighter(type='number', name='input', placeholder='Add Numbers')
   button(type="submit")#AddNumbers.button.is-primary.is-large.has-text-white.is.mt-3.ml-3
-      .p Add Numbers       
+    .p Add Numbers     
+.p.has-text-white.mt-1.ml-3 Added Numbers
+  #DisplayEven.textarea.textarea.readonly.mt-3.has-background-grey-dark.has-text-grey-lighter
+   .p Added Numbers: #{addedNumbers}
 form(action='http://localhost:5000/Divisible/result', method='POST')
  .p.has-text-white.mt-1.ml-3 Result
       #DisplayEven.textarea.textarea.readonly.mt-3.has-background-grey-dark.has-text-grey-lighter
