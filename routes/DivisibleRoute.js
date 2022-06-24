@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Divisible = require('../lib/Divisible');
-let numbers;
+let _divisible;
 router.get('/', (req, res,next) => {
     res.render('Divisible.pug');
     next();
@@ -12,7 +12,8 @@ router.get('/AddNumber', (req,res,next) => {
     next();
 });
 router.post('/AddNumber', (req,res,next) => {
-    addednumbers = Divisible.addnumbers(req.body.input);
+    addednumbers = Divisible.addnumbers(req.body.numberInput);
+    _divisible = req.body.divisibleInput;
     res.render('Divisible.pug', {addedNumbers : addednumbers});
     next();
 });
@@ -21,7 +22,8 @@ router.get('/Result', (req,res,next) => {
     next();
 });
 router.post('/Result', (req,res,next) => {
-    numbers = Divisible.calculate(2);
+    numbers = Divisible.calculate(_divisible);
+
     res.render('Divisible.pug', {result: numbers});
     next();
 });

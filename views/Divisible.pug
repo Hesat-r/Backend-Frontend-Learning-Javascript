@@ -6,7 +6,9 @@ p.p.has-text-white.has-background-black-ter.title.size-1.has-text-centered Divis
 link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css')
 form(action='http://localhost:5000/Divisible/AddNumber', method='POST')
   .p.has-text-white.mt-1.ml-3 Input
-       input#inputNumbers.input.mt-2.has-background-grey-dark.has-text-grey-lighter(type='number', name='input', placeholder='Add Numbers')
+       input#inputNumbers.input.mt-2.has-background-grey-dark.has-text-grey-lighter(type='number', name='numberInput', placeholder='Add Numbers')
+  .p.has-text-white.mt-1.ml-3 Disivible
+       input#inputNumbers.input.mt-2.has-background-grey-dark.has-text-grey-lighter(type='number', name='divisibleInput', placeholder='Divisible')     
   button(type="submit")#AddNumbers.button.is-primary.is-large.has-text-white.is.mt-3.ml-3
     .p Add Numbers     
 .p.has-text-white.mt-1.ml-3 Added Numbers
