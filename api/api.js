@@ -4,7 +4,7 @@ const NumberSchema = require('/Users/hesatredzepi/Desktop/SplittOddAndEven/Datab
 const CountSchema = require('/Users/hesatredzepi/Desktop/SplittOddAndEven/Database/Schemas/Count-schema.js');
 const ExclamationSchema = require('../Database/Schemas/Exclamation-schema.js');
 const spliter = require('../lib/SplitOddAndEven');
-
+const AbbreviateName = require('../Database/Schemas/AbbreviateName-schema.js');
 let Odd = spliter.OddNumbers;
 let Even = spliter.EvenNumbers;
 let numbers = spliter.Numbers;
@@ -48,5 +48,15 @@ router.get('/ExclamationRemover/:id',async (req,res,next) =>{
         console.log('EXCLAMATION ID ' + fetchid);
         next();
 });
-
+router.get('/AbbreviateName/:id',async (req,res,next) =>{
+    fetchid = req.params.id;
+    await AbbreviateName.findById(fetchid).then((result) => {
+        res.send(result)
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+        console.log('CHARCOUNTER ID ' + fetchid);
+        next();
+});
 module.exports = router;
