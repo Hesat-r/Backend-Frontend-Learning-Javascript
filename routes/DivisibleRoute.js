@@ -23,8 +23,18 @@ router.get('/Result', (req,res,next) => {
 });
 router.post('/Result', (req,res,next) => {
     numbers = Divisible.calculate(_divisible);
-
+    
     res.render('Divisible.pug', {result: numbers});
+    next();
+});
+
+router.get('/Delete', (req,res,next) => {
+    res.render('Divisible.pug');
+    next();
+});
+router.post('/Delete', (req,res,next) => {
+    Divisible.delete();
+    res.render('Divisible.pug');
     next();
 });
 module.exports = router;
