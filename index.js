@@ -9,6 +9,8 @@ const api = require('./api/api.js');
 const ExclamationRemoverRoute = require('./routes/ExclamationRemoverRoute.js');
 const PointCalc = require('./routes/PointCalcRoute.js');
 const AbbreviateName = require('./routes/AbbreviateNameRoute.js');
+const SheepCounter = require('./routes/SheepCountRoute.js');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser());
@@ -31,8 +33,8 @@ const connectToMongoDB = async() => {
 connectToMongoDB();
 
 
-
 app.use('/AbbreviateName', AbbreviateName);
+app.use('/SheepCounter',SheepCounter);
 app.use('/PointCalculator',PointCalc);
 app.use('/SplitOddAndEven', SplitOddAndEvenRoute)
 app.use('/charcounter', CharCounterRoute);
