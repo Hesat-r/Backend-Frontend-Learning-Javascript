@@ -5,6 +5,7 @@ const CountSchema = require('/Users/hesatredzepi/Desktop/SplittOddAndEven/Databa
 const ExclamationSchema = require('../Database/Schemas/Exclamation-schema.js');
 const spliter = require('../lib/SplitOddAndEven');
 const AbbreviateName = require('../Database/Schemas/AbbreviateName-schema.js');
+const SheepCounter = require('../Database/Schemas/SheepCount-schema.js');
 let Odd = spliter.OddNumbers;
 let Even = spliter.EvenNumbers;
 let numbers = spliter.Numbers;
@@ -56,7 +57,18 @@ router.get('/AbbreviateName/:id',async (req,res,next) =>{
         .catch((err) => {
             res.send(err)
         })
-        console.log('CHARCOUNTER ID ' + fetchid);
+        console.log('ABBREVIATENAME ID ' + fetchid);
+        next();
+});
+router.get('/SheepCounter/:id',async (req,res,next) =>{
+    fetchid = req.params.id;
+    await SheepCounter.findById(fetchid).then((result) => {
+        res.send(result)
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+        console.log('SHEEPCOUNTER ID ' + fetchid);
         next();
 });
 module.exports = router;
