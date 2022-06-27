@@ -17,12 +17,13 @@ form(action='http://localhost:5000/Divisible/AddNumber', method='POST')
 form(action='http://localhost:5000/Divisible/result', method='POST')
  .p.has-text-white.mt-1.ml-3 Result
       #DisplayEven.textarea.textarea.readonly.mt-3.has-background-grey-dark.has-text-grey-lighter.level-left.level-item
-           - var ValueArray = Object.values({result})
-           - var n = 0;
-           each value in ValueArray
-             p.has-text-Warning = !{value}
-             p.has-text-Danger = !{value}
-
+           
+           - const values = Object.values({result});
+           each n, i in result ? result : [0]
+                if n % 2 === 0
+                 p.p.has-text-primary= n
+                else if n % 2 !== 0 
+                 p.p.has-text-Danger= n
  button(type="submit")#Start.button.is-primary.is-large.has-text-white.is.mt-3.ml-3
         .p Start
 form(action='http://localhost:5000/Divisible/delete', method='POST')
